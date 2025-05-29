@@ -1,15 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BarangController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pesan_barang', function () {
-    return view('pesan_barang');
-});
-
-Route::get('/blabla', function () {
-    return view('blabla');
-});
+Route::resource('barang', BarangController::class);
