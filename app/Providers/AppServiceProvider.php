@@ -2,23 +2,24 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use App\Models\CateringOrder;
+use App\Policies\CateringOrderPolicy;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
-class AppServiceProvider extends ServiceProvider
+class AuthServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
-    public function register(): void
-    {
-        //
-    }
+    protected $policies = [
+        CateringOrder::class => CateringOrderPolicy::class,
+    ];
 
-    /**
-     * Bootstrap any application services.
-     */
-    public function boot(): void
+    public function boot()
     {
-        //
+        $this->registerPolicies();
+
+        // Define admin role
+        Gate::define('admin', function ($user) {
+            return $user->is_admin; // Asumsikan ada kolom is_admin di tabel users
+        });
     }
 }
