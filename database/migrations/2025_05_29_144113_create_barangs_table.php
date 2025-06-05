@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('nama_barang');
             $table->text('deskripsi')->nullable();
-            $table->integer('jumlah_tersedia');
-            $table->enum('status', ['tersedia', 'dipinjam', 'maintenance'])->default('tersedia');
-            $table->timestamps();
+            $table->integer('jumlah_total'); // Jumlah total barang ini yang dimiliki
+            $table->integer('jumlah_tersedia'); // Jumlah yang saat ini tersedia untuk dipinjam
+            $table->enum('kondisi', ['Baik', 'Rusak Ringan', 'Perlu Perbaikan', 'Rusak Berat'])->default('Baik');
+            $table->string('gambar')->nullable(); // Path atau URL ke gambar barang
+            $table->timestamps(); // created_at dan updated_at
         });
     }
 

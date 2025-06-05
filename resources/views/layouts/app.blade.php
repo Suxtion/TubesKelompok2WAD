@@ -3,103 +3,61 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }} - @yield('title', 'Aplikasi Kampus')</title>
+    <title>{{ config('app.name', 'Laravel') }} - Peminjaman Barang</title>
 
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    {{-- Jika menggunakan Vite --}}
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-
-    {{-- Atau link CSS manual (contoh Bootstrap dari CDN) --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link href="{{ asset('css/style.css') }}" rel="stylesheet"> --}} {{-- Untuk CSS kustom kamu --}}
-
-    @stack('styles') {{-- Untuk menambahkan CSS spesifik per halaman --}}
-
+    @vite(['resources/css/app.css', 'resources/js/app.js']) <style>
+        body {
+            font-family: 'Figtree', sans-serif;
+        }
+    </style>
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<body class="font-sans antialiased bg-gray-100">
+    <div class="min-h-screen">
+        <nav class="bg-white border-b border-gray-200 shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex">
+                        <div class="shrink-0 flex items-center">
+                            <a href="{{ route('barangs.index') }}">
+                                <svg class="block h-9 w-auto fill-current text-gray-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10.427 3.42A1 1 0 009.58 2.707L5.172 5.47a1 1 0 00-.495.878v5.308a1 1 0 00.495.878l4.408 2.763a1 1 0 00.854 0l4.408-2.763a1 1 0 00.495-.878V6.348a1 1 0 00-.495-.878L10.427 3.42zM9 7.5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1zm1 5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="ml-2 font-semibold text-xl text-gray-700">Reservasi Kampus</span>
+                            </a>
+                        </div>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto">
-                        @auth {{-- Tampilkan hanya jika user sudah login --}}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('barang.index') }}">Peminjaman Barang</a>
-                            </li>
-                            {{-- Tambahkan link navigasi lain di sini --}}
-                            {{-- <li class="nav-item">
-                                <a class="nav-link" href="{{ route('reservasi.ruangan.index') }}">Reservasi Ruangan</a>
-                            </li> --}}
-                        @endauth
-                    </ul>
-
-                    <ul class="navbar-nav ms-auto">
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <a href="{{ route('barangs.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('barangs.*') ? 'border-indigo-500 text-gray-900' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300' }} text-sm font-medium leading-5 transition duration-150 ease-in-out">
+                                Manajemen Barang
+                            </a>
+                            </div>
+                    </div>
                 </div>
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content') {{-- Di sinilah konten spesifik halaman akan ditampilkan --}}
-        </main>
+        @if (isset($header))
+            <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
+        @endif
 
-        <footer class="bg-light text-center text-lg-start mt-auto">
-            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-                © {{ date('Y') }} Hak Cipta:
-                <a class="text-dark" href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}</a>
+        <main class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
+                        @yield('content')
+                    </div>
+                </div>
             </div>
-        </footer>
+        </main>
     </div>
-
-    {{-- Jika menggunakan Vite, app.js sudah termasuk di atas --}}
-
-    {{-- Atau link JS manual (contoh Bootstrap Bundle dari CDN) --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    {{-- <script src="{{ asset('js/script.js') }}"></script> --}} {{-- Untuk JS kustom kamu --}}
-
-    @stack('scripts') {{-- Untuk menambahkan JavaScript spesifik per halaman --}}
 </body>
 </html>

@@ -7,4 +7,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('barang', BarangController::class);
+Route::resource('barangs', BarangController::class);
