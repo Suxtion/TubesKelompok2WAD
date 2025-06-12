@@ -27,8 +27,8 @@ resources/views/customer/reservasi/index:
                         <tbody class="bg-white divide-y divide-gray-200">
                             @forelse ($reservasis as $reservasi)
                                 <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">{{ $reservasi->nama_acara }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">{{ $reservasi->tanggal }}</td>
+                                    <td class="px-6 py-4 text-gray-800 whitespace-nowrap">{{ $reservasi->nama_acara }}</td>
+                                    <td class="px-6 py-4 text-gray-800 whitespace-nowrap">{{ $reservasi->tanggal }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                                             @if($reservasi->status == 'pending') bg-yellow-100 text-yellow-800 @endif

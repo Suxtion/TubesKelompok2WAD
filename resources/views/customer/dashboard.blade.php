@@ -72,10 +72,10 @@ resources/views/customer/dashboard:
                     <p class="text-gray-300 leading-relaxed mb-6">Jalankan event di dalam kampus dengan para profesional yang berpengalaman. Anda memiliki hak akses untuk melakukan Book Event Organizer.</p>
                     <div class="flex space-x-4">
                         <a href="{{ route('user.event-organizers.index') }}" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105">
-                            Ajukan Booking (Beta)
+                            Ajukan Booking
                         </a>
                         <a href="{{ route('user.event-organizers.index') }}" class="px-6 py-3 border border-white/30 text-white rounded-xl hover:bg-white/10 transition-all">
-                            Lihat Riwayat (Beta)
+                            Lihat Riwayat
                         </a>
                     </div>
                 </div>
