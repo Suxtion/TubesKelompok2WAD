@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-white leading-tight">
             {{ __('Manajemen Permintaan Booking Event') }}
         </h2>
     </x-slot>
@@ -34,12 +34,12 @@
                     <tbody class="bg-white divide-y divide-gray-200">
                         @forelse ($bookingRequests as $request)
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $request->id }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $request->event_name }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ \Carbon\Carbon::parse($request->event_date)->format('d M Y') }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $request->eventOrganizer->nama_eo ?? 'N/A' }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $request->user->name ?? 'N/A' }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td class="px-6 py-4 text-gray-800 whitespace-nowrap">{{ $request->id }}</td>
+                                <td class="px-6 py-4 text-gray-800 whitespace-nowrap">{{ $request->event_name }}</td>
+                                <td class="px-6 py-4 text-gray-800 whitespace-nowrap">{{ \Carbon\Carbon::parse($request->event_date)->format('d M Y') }}</td>
+                                <td class="px-6 py-4 text-gray-800 whitespace-nowrap">{{ $request->eventOrganizer->nama_eo ?? 'N/A' }}</td>
+                                <td class="px-6 py-4 text-gray-800 whitespace-nowrap">{{ $request->user->name ?? 'N/A' }}</td>
+                                <td class="px-6 py-4 text-gray-800 whitespace-nowrap">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full
                                         @if($request->status == 'pending') bg-yellow-100 text-yellow-800
                                         @elseif($request->status == 'accepted') bg-green-100 text-green-800

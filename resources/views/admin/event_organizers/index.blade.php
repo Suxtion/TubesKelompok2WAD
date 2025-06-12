@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-between items-center">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h2 class="font-semibold text-xl text-white leading-tight">
                 {{ __('Manajemen Event Organizer') }}
             </h2>
             <a href="{{ route('admin.event-organizers.create') }}" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700">
@@ -44,9 +44,9 @@
                                         <span class="text-gray-400">No Logo</span>
                                     @endif
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $eo->nama_eo }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $eo->kontak_email }}<br>{{ $eo->kontak_telepon }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td class="px-6 py-4 text-gray-800 whitespace-nowrap">{{ $eo->nama_eo }}</td>
+                                <td class="px-6 py-4 text-gray-800 whitespace-nowrap">{{ $eo->kontak_email }}<br>{{ $eo->kontak_telepon }}</td>
+                                <td class="px-6 py-4 text-gray-800 whitespace-nowrap">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full
                                         @if($eo->status == 'aktif') bg-green-100 text-green-800 @else bg-red-100 text-red-800 @endif">
                                         {{ ucfirst(str_replace('_', ' ', $eo->status)) }}
