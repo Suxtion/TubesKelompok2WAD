@@ -1,8 +1,9 @@
+resources/views/user/eo/index:
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Pilih Event Organizer Terbaik untuk Event Anda') }}
-        </h2>
+    <h2 class="font-semibold text-xl text-white leading-tight">
+        {{ __('Pilih Event Organizer Terbaik untuk Event Anda') }}
+    </h2>
     </x-slot>
 
     <div class="py-12">
