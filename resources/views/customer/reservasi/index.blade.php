@@ -1,10 +1,11 @@
+resources/views/customer/reservasi/index:
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-between items-center">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h2 class="font-semibold text-xl text-white leading-tight">
                 {{ __('Riwayat Reservasi Anda') }}
             </h2>
-            <a href="{{ route('reservasi.create') }}" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700">
+            <a href="{{ route('reservasi.create') }}" class="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all">
                 + Buat Reservasi Baru
             </a>
         </div>
@@ -33,6 +34,7 @@
                                             @if($reservasi->status == 'pending') bg-yellow-100 text-yellow-800 @endif
                                             @if($reservasi->status == 'disetujui') bg-green-100 text-green-800 @endif
                                             @if($reservasi->status == 'ditolak') bg-red-100 text-red-800 @endif
+                                            @if($reservasi->status == 'selesai') bg-blue-100 text-blue-800 @endif
                                             @if($reservasi->status == 'dibatalkan') bg-gray-100 text-gray-800 @endif">
                                             {{ $reservasi->status }}
                                         </span>

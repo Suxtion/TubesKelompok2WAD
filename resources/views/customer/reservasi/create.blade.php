@@ -1,6 +1,7 @@
+resources/views/customer/reservasi/create:
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-white leading-tight">
             {{ __('Formulir Reservasi Ruangan') }}
         </h2>
     </x-slot>
@@ -54,7 +55,7 @@
 
                         <div class="mt-4">
                             <label for="deskripsi_kegiatan" class="block font-medium text-sm text-gray-700">Deskripsi Kegiatan</label>
-                            <textarea id="deskripsi_kegiatan" name="deskripsi_kegiatan" rows="4" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+                            <textarea id="deskripsi_kegiatan" name="deskripsi_kegiatan" rows="4" required class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
                         </div>
                         
                         <div class="flex items-center justify-end mt-4">
