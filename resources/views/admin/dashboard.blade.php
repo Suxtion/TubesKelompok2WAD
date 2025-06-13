@@ -50,7 +50,7 @@ resources/views/admin/dashboard:
                     <h3 class="text-2xl font-semibold mb-4 text-white">Manajemen Pemesanan Catering</h3>
                     <p class="text-gray-300 leading-relaxed mb-6">Kelola seluruh proses pemesanan catering untuk berbagai acara yang diadakan di kampus. Sebagai admin, Anda dapat memverifikasi penyedia catering, memproses pesanan, dan memastikan kualitas layanan catering yang diberikan.</p>
                     <div class="flex justify-center mt-auto space-x-4">
-                        <a href="#" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105">
+                        <a href="{{ route('admin.penyedia-catering.index') }}" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105">
                             Manage Pesanan Catering (Beta)
                         </a>
                     </div>

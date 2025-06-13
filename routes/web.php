@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservasiController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\Admin\PenyediaCateringController;
+use App\Http\Controllers\PemesananCateringController;
 use App\Http\Controllers\Admin\EventOrganizerController;
 use App\Http\Controllers\User\EventOrganizerSelectionController;
 
@@ -34,6 +35,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('peminjaman', PeminjamanController::class);
     });
 
+
     // --- GRUP RUTE ADMIN ---
     Route::middleware('role:admin')->prefix('admin')->name('admin.')
         ->group(function () {
@@ -45,9 +47,10 @@ Route::middleware('auth')->group(function () {
             Route::patch('peminjaman/{peminjaman}/status', [PeminjamanController::class, 'updateStatus'])->name('peminjaman.updateStatus');
             Route::resource('peminjaman', PeminjamanController::class);
 
-            // Penyedia Catering (DIPINDAHKAN KE SINI)
+            // Penyedia Catering
             Route::resource('penyedia-catering', PenyediaCateringController::class);
 
+            // Event Organizer
             Route::resource('event-organizers', EventOrganizerController::class)->names('event-organizers');
             Route::get('booking-requests', [EventOrganizerController::class, 'bookingRequests'])->name('booking-requests.index');
             Route::get('booking-requests/{bookingRequest}/edit-status', [EventOrganizerController::class, 'editBookingStatus'])->name('booking-requests.edit-status');
@@ -66,5 +69,9 @@ Route::get('/event-organizers', [EventOrganizerSelectionController::class, 'inde
     // Rute baru untuk menyimpan booking
 Route::post('/event-organizers/{eventOrganizer}/book', [EventOrganizerSelectionController::class, 'storeBooking'])->name('user.event-organizers.book.store');
 
+Route::middleware('auth')->prefix('catering')->name('catering.')->group(function () {
+    Route::get('create', [PemesananCateringController::class, 'create'])->name('create');
+    Route::post('store', [PemesananCateringController::class, 'store'])->name('store');
+});
 
 require __DIR__.'/auth.php';
