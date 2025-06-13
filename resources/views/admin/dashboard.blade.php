@@ -18,7 +18,7 @@ resources/views/admin/dashboard:
                         </svg>
                     </div>
                     <h3 class="text-2xl font-semibold mb-4 text-white">Manajemen Reservasi Ruangan</h3>
-                    <p class="text-gray-300 leading-relaxed mb-6">Ajukan pemesanan ruangan untuk kegiatan Anda. Anda memiliki hak akses untuk melakukan reservasi ruangan.</p>
+                    <p class="text-gray-300 leading-relaxed mb-6">Kelola seluruh proses pemesanan ruangan untuk kegiatan yang dilakukan di kampus. Sebagai admin, Anda memiliki kontrol penuh untuk mengatur dan menyetujui permintaan reservasi ruangan.</p>
                     <div class="flex justify-center mt-auto space-x-4">
                         <a href="{{ route('admin.reservasi.index') }}" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105">
                             Manage Reservasi Ruangan
@@ -32,8 +32,8 @@ resources/views/admin/dashboard:
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4 text-white">Peminjaman Barang</h3>
-                    <p class="text-gray-300 leading-relaxed mb-6">Pinjam barang dan inventaris kampus dengan mudah. Anda memiliki hak akses untuk melakukan peminjaman barang.</p>
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Menajemen Peminjaman Barang</h3>
+                    <p class="text-gray-300 leading-relaxed mb-6">Kelola dan pantau seluruh peminjaman barang dan inventaris kampus. Sebagai admin, Anda dapat menyetujui atau menolak peminjaman serta memastikan barang tersedia untuk digunakan.</p>
                     <div class="flex justify-center mt-auto space-x-4">
                         <a href="{{ route('admin.peminjaman.index') }}" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105">
                             Manage Peminjaman Barang
@@ -47,8 +47,8 @@ resources/views/admin/dashboard:
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4 text-white">Pemesanan Catering</h3>
-                    <p class="text-gray-300 leading-relaxed mb-6">Pesan catering untuk acara Anda dari penyedia terverifikasi.</p>
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Manajemen Pemesanan Catering</h3>
+                    <p class="text-gray-300 leading-relaxed mb-6">Kelola seluruh proses pemesanan catering untuk berbagai acara yang diadakan di kampus. Sebagai admin, Anda dapat memverifikasi penyedia catering, memproses pesanan, dan memastikan kualitas layanan catering yang diberikan.</p>
                     <div class="flex justify-center mt-auto space-x-4">
                         <a href="#" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105">
                             Manage Pesanan Catering (Beta)
@@ -62,8 +62,8 @@ resources/views/admin/dashboard:
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4 text-white">Event Organizer</h3>
-                    <p class="text-gray-300 leading-relaxed mb-6">Jalankan event di dalam kampus dengan para profesional yang berpengalaman. Anda memiliki hak akses untuk melakukan Book Event Organizer.</p>
+                    <h3 class="text-2xl font-semibold mb-4 text-white">Manajemen Event Organizer</h3>
+                    <p class="text-gray-300 leading-relaxed mb-6">Kelola dan pantau seluruh kegiatan event organizer yang akan dilaksanakan di kampus. Sebagai admin, Anda memiliki akses untuk memverifikasi penyedia event organizer, memproses pemesanan, serta memastikan setiap event berjalan dengan lancar.</p>
                     <div class="flex justify-center mt-auto space-x-4">
                         <a href="{{ route('admin.event-organizers.index') }}" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105">
                             Manage Ajukan Booking
