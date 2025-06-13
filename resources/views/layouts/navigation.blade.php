@@ -10,7 +10,7 @@ resources/views/layouts/navigation:
                 </div>
                 <div>
                     <h1 class="text-xl font-bold text-white">RESERVA TEL-U</h1>
-                    <p class="text-xs text-gray-300">Your Best Assistant Partner</p>
+                    <p class="text-xs text-gray-300">Sistem Pemesanan Ruangan</p>
                 </div>
             </div>
 
