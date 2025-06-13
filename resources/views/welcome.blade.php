@@ -79,8 +79,8 @@
                         </svg>
                     </div>
                     <div>
-                        <h1 class="text-xl font-bold text-white">TEL-U</h1>
-                        <p class="text-xs text-gray-300">Reservasi Gedung</p>
+                        <h1 class="text-xl font-bold text-white">RESERVA TEL-U</h1>
+                        <p class="text-xs text-gray-300">Sistem Pemesanan Ruangan</p>
                     </div>
                 </div>
                 
@@ -129,7 +129,7 @@
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="animate-fade-in">
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                    Reservasi Gedung<br>TEL-U
+                    RESERVA TEL-U
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
                     Sistem pemesanan ruangan modern untuk kebutuhan akademik dan non-akademik di Telkom University
@@ -206,7 +206,7 @@
                         Tentang Sistem Reservasi
                     </h2>
                     <p class="text-gray-300 text-lg mb-6 leading-relaxed">
-                        Sistem Reservasi Gedung TEL-U adalah platform digital yang dirancang khusus untuk memudahkan civitas akademika Telkom University dalam memesan dan mengelola penggunaan ruangan.
+                        Sistem Reserva TEL-U adalah platform digital yang dirancang khusus untuk memudahkan civitas akademika Telkom University dalam memesan dan mengelola penggunaan ruangan.
                     </p>
                     <div class="space-y-4">
                         <div class="flex items-start space-x-3">
@@ -320,7 +320,7 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold">TEL-U Reservasi</h3>
+                            <h3 class="text-lg font-bold">Reserva TEL-U</h3>
                             <p class="text-sm text-gray-400">Sistem Pemesanan Ruangan</p>
                         </div>
                     </div>
