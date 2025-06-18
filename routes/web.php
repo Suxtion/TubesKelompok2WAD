@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
             Route::resource('peminjaman', PeminjamanController::class);
 
             // Penyedia Catering
+            Route::patch('penyedia-catering/{catering}/approve-order/{pemesanan}', [PenyediaCateringController::class, 'approveOrder'])->name('penyedia-catering.approve-order');
+            Route::patch('penyedia-catering/{catering}/reject-order/{pemesanan}', [PenyediaCateringController::class, 'rejectOrder'])->name('penyedia-catering.reject-order');
             Route::resource('penyedia-catering', PenyediaCateringController::class);
 
             // Event Organizer
@@ -72,6 +74,12 @@ Route::post('/event-organizers/{eventOrganizer}/book', [EventOrganizerSelectionC
 Route::middleware('auth')->prefix('catering')->name('catering.')->group(function () {
     Route::get('create', [PemesananCateringController::class, 'create'])->name('create');
     Route::post('store', [PemesananCateringController::class, 'store'])->name('store');
+});
+
+Route::get('/catering', [PemesananCateringController::class, 'index'])->name('catering.index');
+
+Route::prefix('customer')->name('customer.')->group(function () {
+    Route::resource('catering', PemesananCateringController::class);
 });
 
 require __DIR__.'/auth.php';

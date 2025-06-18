@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\PenyediaCatering;
+use App\Models\PemesananCatering;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,7 +13,8 @@ class PenyediaCateringController extends Controller
     public function index()
     {
         $penyediaCaterings = PenyediaCatering::latest()->get();
-        return view('admin.penyedia-catering.index', compact('penyediaCaterings'));
+        $daftarPesanan = PemesananCatering::with(['user', 'penyediaCatering'])->orderByDesc('created_at')->get();
+        return view('admin.penyedia-catering.index', compact('penyediaCaterings', 'daftarPesanan'));
     }
 
     // Menampilkan form untuk menambah penyedia catering
@@ -80,4 +82,23 @@ class PenyediaCateringController extends Controller
         $penyediaCatering->delete();
         return redirect()->route('admin.penyedia-catering.index')->with('success', 'Penyedia Catering berhasil dihapus.');
     }
+
+    public function approveOrder($cateringId, $pemesananId)
+    {
+        $pemesanan = PemesananCatering::findOrFail($pemesananId);
+        $pemesanan->status = 'disetujui';
+        $pemesanan->save();
+
+        return redirect()->back()->with('success', 'Pemesanan catering berhasil disetujui.');
+    }
+
+    public function rejectOrder($cateringId, $pemesananId)
+    {
+        $pemesanan = PemesananCatering::findOrFail($pemesananId);
+        $pemesanan->status = 'ditolak';
+        $pemesanan->save();
+
+        return redirect()->back()->with('success', 'Pemesanan catering berhasil ditolak.');
+    }
+
 }

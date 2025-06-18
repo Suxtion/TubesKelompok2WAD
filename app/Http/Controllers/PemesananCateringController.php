@@ -30,6 +30,12 @@ class PemesananCateringController extends Controller
         $pemesanan->status = 'pending'; // Status pemesanan
         $pemesanan->save();
 
-        return redirect()->route('catering.index')->with('success', 'Pemesanan catering berhasil dilakukan.');
+        return redirect()->route('customer.catering.index')->with('success', 'Pemesanan catering berhasil dilakukan.');
+    }
+
+    public function index()
+    {
+        $pemesanan = \App\Models\PemesananCatering::where('user_id', auth()->id())->latest()->get();
+        return view('customer.catering.index', compact('pemesanan'));
     }
 }

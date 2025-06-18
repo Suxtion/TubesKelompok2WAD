@@ -59,7 +59,7 @@ resources/views/customer/dashboard:
                         <a href="{{ route('catering.create') }}" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105">
                             Ajukan Catering
                         </a>
-                        <a href="#" class="px-6 py-3 border border-white/30 text-white rounded-xl hover:bg-white/10 transition-all">
+                        <a href="{{ route('customer.catering.index') }}" class="px-6 py-3 border border-white/30 text-white rounded-xl hover:bg-white/10 transition-all">
                             Lihat Riwayat
                         </a>
                     </div>
