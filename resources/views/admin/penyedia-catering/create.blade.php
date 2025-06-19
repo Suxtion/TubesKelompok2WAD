@@ -24,6 +24,14 @@
                             <textarea name="deskripsi" id="deskripsi" class="mt-1 w-full p-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required></textarea>
                         </div>
 
+                        <!-- Menu -->
+                        <div class="mt-4">
+                            <label for="menu" class="block text-sm font-medium text-gray-500 uppercase tracking-wider">Menu</label>
+                            <textarea name="menu" id="menu" class="mt-1 w-full p-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                placeholder="Contoh: Nasi Goreng, Ayam Bakar, Sate Ayam, dll"></textarea>
+                            <p class="text-xs text-gray-400 mt-1">Pisahkan setiap menu dengan koma atau baris baru.</p>
+                        </div>
+
                         <!-- Alamat -->
                         <div class="mt-4">
                             <label for="alamat" class="block text-sm font-medium text-gray-500 uppercase tracking-wider">Alamat</label>

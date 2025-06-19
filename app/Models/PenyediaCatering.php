@@ -16,5 +16,6 @@ class PenyediaCatering extends Model
         'kontak',
         'logo_foto',
         'status',
+        'menu',
     ];
 }

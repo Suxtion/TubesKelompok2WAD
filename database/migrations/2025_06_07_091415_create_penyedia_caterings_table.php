@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('kontak');
             $table->string('logo_foto')->nullable(); // Path ke file gambar
             $table->enum('status', ['aktif', 'nonaktif'])->default('aktif');
+            $table->text('menu')->nullable();
             $table->timestamps();
         });
     }

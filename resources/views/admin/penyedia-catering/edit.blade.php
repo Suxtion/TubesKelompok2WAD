@@ -24,6 +24,12 @@
                         </div>
 
                         <div class="mt-4">
+                            <label for="menu" class="block text-sm font-medium text-gray-700">Menu</label>
+                            <textarea name="menu" id="menu" class="mt-1 w-full p-2 border" required>{{ old('menu', $penyediaCatering->menu) }}</textarea>
+                            <p class="text-xs text-gray-400 mt-1">Pisahkan setiap menu dengan koma atau baris baru.</p>
+                        </div>
+
+                        <div class="mt-4">
                             <label for="alamat" class="block text-sm font-medium text-gray-700">Alamat</label>
                             <input type="text" name="alamat" id="alamat" value="{{ old('alamat', $penyediaCatering->alamat) }}" class="mt-1 w-full p-2 border rounded" required>
                         </div>
