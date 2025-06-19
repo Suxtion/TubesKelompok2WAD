@@ -29,6 +29,7 @@ class PenyediaCateringController extends Controller
         $validatedData = $request->validate([
             'nama_penyedia' => 'required|string|max:255',
             'deskripsi' => 'required|string',
+            'menu' => 'nullable|string',
             'alamat' => 'required|string',
             'kontak' => 'required|string',
             'logo_foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -56,6 +57,7 @@ class PenyediaCateringController extends Controller
         $validatedData = $request->validate([
             'nama_penyedia' => 'required|string|max:255',
             'deskripsi' => 'required|string',
+            'menu' => 'nullable|string',
             'alamat' => 'required|string',
             'kontak' => 'required|string',
             'logo_foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',

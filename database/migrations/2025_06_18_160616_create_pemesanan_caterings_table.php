@@ -16,10 +16,10 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('penyedia_catering_id');
             $table->integer('jumlah_pesanan');
+            $table->text('keterangan')->nullable();
             $table->string('alamat_pengiriman', 255);
             $table->string('status')->default('pending');
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('penyedia_catering_id')->references('id')->on('penyedia_caterings');
         });

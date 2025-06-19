@@ -29,6 +29,7 @@
                                         <th class="px-4 py-2 text-left text-xs font-medium text-black uppercase">No</th>
                                         <th class="px-4 py-2 text-left text-xs font-medium text-black uppercase">Penyedia Catering</th>
                                         <th class="px-4 py-2 text-left text-xs font-medium text-black uppercase">Jumlah Pesanan</th>
+                                        <th class="px-4 py-2 text-left text-xs font-medium text-black uppercase">Keterangan</th>
                                         <th class="px-4 py-2 text-left text-xs font-medium text-black uppercase">Alamat Pengiriman</th>
                                         <th class="px-4 py-2 text-left text-xs font-medium text-black uppercase">Status</th>
                                         <th class="px-4 py-2 text-left text-xs font-medium text-black uppercase">Tanggal</th>
@@ -42,6 +43,7 @@
                                                 {{ $item->penyediaCatering->nama_penyedia ?? '-' }}
                                             </td>
                                             <td class="px-4 py-2">{{ $item->jumlah_pesanan }}</td>
+                                            <td class="px-4 py-2">{{ $item->keterangan }}</td>
                                             <td class="px-4 py-2">{{ $item->alamat_pengiriman }}</td>
                                             <td class="px-4 py-2">
                                                 @if($item->status == 'pending')

@@ -55,6 +55,7 @@
                                 <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Nama Customer</th>
                                 <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Penyedia Catering</th>
                                 <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Jumlah</th>
+                                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Keterangan</th>
                                 <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Alamat</th>
                                 <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
                                 <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Aksi</th>
@@ -67,6 +68,7 @@
                                     <td class="px-4 py-2">{{ $pesanan->user->name ?? '-' }}</td>
                                     <td class="px-4 py-2">{{ $pesanan->penyediaCatering->nama_penyedia ?? '-' }}</td>
                                     <td class="px-4 py-2">{{ $pesanan->jumlah_pesanan }}</td>
+                                    <td class="px-4 py-2">{{ $pesanan->keterangan }}</td>
                                     <td class="px-4 py-2">{{ $pesanan->alamat_pengiriman }}</td>
                                     <td class="px-4 py-2">
                                         @if($pesanan->status == 'pending')

@@ -34,6 +34,10 @@
                                     <span class="text-sm text-gray-700">{{ $penyedia->deskripsi }}</span>
                                 </div>
                                 <div>
+                                    <span class="font-medium">Menu:</span>
+                                    <span class="text-sm text-gray-700">{{ $penyedia->menu }}</span>
+                                </div>
+                                <div>
                                     <span class="font-medium">Alamat:</span>
                                     <span class="text-sm text-gray-700">{{ $penyedia->alamat }}</span>
                                 </div>
@@ -68,6 +72,11 @@
                         <div class="mt-4">
                             <label for="jumlah_pesanan" class="block text-sm font-medium text-gray-700">Jumlah Pesanan</label>
                             <input type="number" name="jumlah_pesanan" id="jumlah_pesanan" class="mt-1 w-full p-2 border rounded" required min="1">
+                        </div>
+
+                        <div class="mt-4">
+                            <label for="keterangan" class="block text-sm font-medium text-gray-700">Keterangan Pesanan</label>
+                            <textarea name="keterangan" id="keterangan" class="mt-1 w-full p-2 border rounded" rows="2" placeholder="Misal: Paket A 10pc Paket B 10pc tanpa sambal, nasi dipisah, dsb..."></textarea>
                         </div>
 
                         <div class="mt-4">
