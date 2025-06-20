@@ -10,6 +10,8 @@
         </div>
     </x-slot>
 
+    <script src="//unpkg.com/alpinejs" defer></script>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -63,6 +65,68 @@
                     </table>
                 </div>
             </div>
+
+            <div x-data="weatherWidget()" x-init="getWeather()" class="mt-8">
+                <div x-show="isLoading" class="bg-white/50 backdrop-blur-sm p-6 text-center rounded-lg shadow-sm">
+                    <p class="text-gray-500">Memuat prakiraan cuaca...</p>
+                </div>
+
+                <div x-show="error" class="bg-red-50 border border-red-200 p-6 text-center rounded-lg shadow-sm">
+                    <p class="text-red-700" x-text="error"></p>
+                </div>
+
+                <div x-show="weather.main" class="bg-white bg-gradient-to-br from-blue-50 to-indigo-100 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900 flex items-center justify-between">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800" x-text="weather.name"></h3>
+                            <p class="text-sm text-gray-600 capitalize" x-text="weather.weather[0].description"></p>
+                        </div>
+                        <div class="text-right flex items-center">
+                            <img x-show="weather.weather[0].icon" 
+                                 :src="`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`" 
+                                 alt="weather icon" 
+                                 class="w-16 h-16 -my-2">
+                            <p class="text-5xl font-light text-gray-800">
+                                <span x-text="Math.round(weather.main.temp)"></span>&deg;C
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+     <script>
+        function weatherWidget() {
+            return {
+                weather: {},
+                isLoading: true,
+                error: '',
+                getWeather() {
+                    this.isLoading = true;
+                    this.error = '';
+                    fetch('{{ route("api.weatherForecast") }}')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Gagal mengambil data cuaca dari server.');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            if(data.cod != 200) { // Cek kode status dari OpenWeatherMap
+                                throw new Error(data.message || 'Respons API tidak valid.');
+                            }
+                            this.weather = data;
+                        })
+                        .catch(error => {
+                            console.error('Error fetching weather:', error);
+                            this.error = 'Tidak dapat memuat prakiraan cuaca saat ini.';
+                        })
+                        .finally(() => {
+                            this.isLoading = false;
+                        });
+                }
+            }
+        }
+    </script>
 </x-app-layout>

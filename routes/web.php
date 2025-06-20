@@ -67,7 +67,7 @@ Route::middleware('auth')->group(function () {
  // Rute untuk User (Pemilihan & Booking EO)
 Route::get('/event-organizers', [EventOrganizerSelectionController::class, 'index'])->name('user.event-organizers.index');
     // Rute baru untuk menampilkan form booking
- Route::get('/event-organizers/{eventOrganizer}/book', [EventOrganizerSelectionController::class, 'showBookingForm'])->name('user.event-organizers.book.form');
+Route::get('/event-organizers/{eventOrganizer}/book', [EventOrganizerSelectionController::class, 'showBookingForm'])->name('user.event-organizers.book.form');
     // Rute baru untuk menyimpan booking
 Route::post('/event-organizers/{eventOrganizer}/book', [EventOrganizerSelectionController::class, 'storeBooking'])->name('user.event-organizers.book.store');
 
@@ -81,5 +81,7 @@ Route::get('/catering', [PemesananCateringController::class, 'index'])->name('ca
 Route::prefix('customer')->name('customer.')->group(function () {
     Route::resource('catering', PemesananCateringController::class);
 });
+
+Route::get('/api/weather-forecast', [\App\Http\Controllers\PeminjamanController::class, 'getWeatherForecast'])->middleware('auth')->name('api.weatherForecast');
 
 require __DIR__.'/auth.php';

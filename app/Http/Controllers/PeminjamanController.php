@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Peminjaman;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 class PeminjamanController extends Controller
 {
@@ -87,5 +88,30 @@ class PeminjamanController extends Controller
         $peminjaman->update($validatedData);
 
         return redirect()->route('peminjaman.index')->with('success', 'Pengajuan peminjaman berhasil diperbarui.');
+    }
+
+    public function getWeatherForecast()
+    {
+        $apiKey = env('OPENWEATHERMAP_API_KEY');
+        if (!$apiKey) {
+            return response()->json(['error' => 'Weather API Key not configured'], 500);
+        }
+
+        // Menggunakan lokasi default Bandung, sesuai konteks.
+        // Anda bisa menggantinya jika perlu.
+        $city = 'Bandung';
+
+        $response = Http::get('https://api.openweathermap.org/data/2.5/weather', [
+            'q' => $city,
+            'appid' => $apiKey,
+            'units' => 'metric', // Untuk mendapatkan suhu dalam Celcius
+            'lang' => 'id'       // Untuk mendapatkan deskripsi dalam Bahasa Indonesia
+        ]);
+
+        if ($response->successful()) {
+            return response()->json($response->json());
+        }
+
+        return response()->json(['error' => 'Failed to fetch weather data'], $response->status());
     }
 }
